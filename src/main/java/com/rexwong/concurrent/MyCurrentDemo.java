@@ -1,27 +1,35 @@
 package com.rexwong.concurrent;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class MyCurrentDemo {
     public static void main(String[] args) {
-//        baseDemo();
+//        fixedPoolDemo();
+        schedulePoolDemo();
     }
 
     private static void fixedPoolDemo() {
-        Executor executor= Executors.newFixedThreadPool(1);//等同于newSingleThreadExecutor()
-        executor.execute(new Runnable(){
+        ExecutorService executor= Executors.newFixedThreadPool(1);//等同于newSingleThreadExecutor()
+        Future future=executor.submit(new Runnable(){
             public void run() {
-                System.out.print("thread1");
+                System.out.println("thread1");
             }
         });
+        executor.shutdown();
+
     }
     private static void schedulePoolDemo() {
-        Executor executor= Executors.newScheduledThreadPool(1);
-        executor.execute(new Runnable(){
+        ScheduledExecutorService executor= Executors.newScheduledThreadPool(1);
+        executor.schedule(new Runnable(){
             public void run() {
-                System.out.print("thread1");
+                System.out.println("thread2");
             }
-        });
+        },2, TimeUnit.SECONDS);
+        executor.schedule(new Runnable(){
+            public void run() {
+                System.out.println("thread5");
+            }
+        },5, TimeUnit.SECONDS);
+        executor.shutdown();
     }
 }
