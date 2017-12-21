@@ -1,4 +1,4 @@
-package com.rexwong.current;
+package com.rexwong.concurrent;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
