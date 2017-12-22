@@ -38,7 +38,7 @@
 1. ==线程共享==
 2. 又称为 Non-Heap，用来和堆进行区分
 3. **用于存储已被虚拟机加载的==类信息==、==常量==、==静态变量==、即使编译后的代码等数据**
-4. HotSpot 虚拟机把 GC 分代收集扩展至方法区，所以在 HotSpot 可以称它为永久代（Permanent Generation）
+4. [HotSpot](https://github.com/rexwong/java-doc/blob/master/src/main/java/com/rexwong/jvm/HotspotJVM.md) 虚拟机把 GC 分代收集扩展至方法区，所以在 HotSpot 可以称它为永久代（Permanent Generation）
 
 ### 方法区的大小的分配
 
