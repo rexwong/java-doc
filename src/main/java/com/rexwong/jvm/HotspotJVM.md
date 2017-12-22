@@ -19,7 +19,7 @@ Hotspot:通畅比较宽泛的是值“热点”，在执行引擎的上下文中
 
 Hotspot JVM有两种类型，分别是server和client。它们的区别是Server VM的初始堆空间会大一些，默认使用的时并行垃圾回收器。Client VM相对来讲会保守一些，初始堆空间会小一些，使用串行的垃圾回收器，它的目标是为了让JVM的启动速度更快。
 
-参考
+# 参考
 
-[^Hotspot JVM的常用选项]: https://www.zybuluo.com/jewes/note/57352
+[Hotspot JVM的常用选项](https://www.zybuluo.com/jewes/note/57352)
 
