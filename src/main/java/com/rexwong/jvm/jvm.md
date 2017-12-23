@@ -1,10 +1,14 @@
 [TOC]
 
-![](img/jvm.png)
+# 内存模型
+
+<img src="img/jvm.png"  alt="图片名称" style="height:280px" align=left />
 
 ## 虚拟机栈
 
-![](img/vmstack.png)
+
+
+<img src="img/vmstack.png"  alt="图片名称" style="height:380px;" align="left"/>
 
 1. 每个线程有一个==私有==的栈，随着线程的创建而创建
 2. 每个方法会创建一个栈帧，栈帧中存放了局部变量表（基本数据类型和对象引用）、操作数栈、方法出口等信息
