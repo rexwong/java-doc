@@ -55,3 +55,6 @@ Heap
 
 <img src="img/jvmlog.png"  alt="图片名称" style="" align=left />
 
+# 参考
+
+[http://www.blogjava.net/fancydeepin/archive/2013/09/29/jvm_heep.html](http://www.blogjava.net/fancydeepin/archive/2013/09/29/jvm_heep.html)
