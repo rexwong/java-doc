@@ -12,7 +12,7 @@
 
 根搜索算法是从离散数学中的**图论**引入的，程序把所有的引用关系看作一张图，从一个节点GC ROOT开始，寻找对应的引用节点，找到这个节点以后，继续寻找这个节点的引用节点，当所有的引用节点寻找完毕之后，剩余的节点则被认为是没有被引用到的节点，即无用的节点。 (遍历图)
 
- <img src="img/gcroot.png"  alt="图片名称" style="height:300px" align=left />
+ <img src="img/gcroot.png"  alt="图片名称" style="height:200px" align=left />
 
 **目前java中可作为GC Root的对象有**
 
