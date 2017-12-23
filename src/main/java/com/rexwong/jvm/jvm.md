@@ -4,13 +4,13 @@
 
 # Java内存
 
-JVM管理的内存区域分为下图几个模块：
+**JVM运行时数据区**
 
 <img src="img/jvm.png"  alt="图片名称" style="height:300px" align=left />
 
 ## PC寄存器
 
-> 也叫程序计数器（Program Counter Register），它的作用可以看做是当前线程所执行的字节码的行号指示器
+> 也叫程序计数器（Program Counter Register），它的作用是指向当前线程所执行的字节码的**行号指示器(指令地址)**。对于抢占CPU资源后，回来后需要得到指令继续执行
 
 1. JVM支持多个线程同时运行，每个线程都有自己的程序计数器
 2. 倘若当前执行的是 JVM 的方法，则该寄存器中保存当前执行指令的地址；倘若执行的是native 方法，则PC寄存器中为空
@@ -18,6 +18,8 @@ JVM管理的内存区域分为下图几个模块：
 4. 占用空间极小
 
 ## 虚拟机栈
+
+> 当前线程运行方法所需要的**数据、指令、返回地址**
 
 <img src="img/vmstack.png"  alt="图片名称" style="height:380px;" align="left"/>
 
