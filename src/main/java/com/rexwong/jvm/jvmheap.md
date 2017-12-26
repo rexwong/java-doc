@@ -33,6 +33,8 @@ Java 中的堆也是 GC 收集垃圾的主要区域。GC 分为两种：**Minor 
 
 ## jvm日志（jdk1.8）
 
+> 打印命令：-XX:+PrintGCDetails
+
 ```shell
 [ GC [ PSYoungGen:  1351K -> 288K (18432K) ]  1351K -> 288K (59392K), 0.0012389 secs ]  [ Times: user=0.00 sys=0.00, real=0.00 secs ] 
 [ Full GC (System)  [ PSYoungGen:  288K -> 0K (18432K) ]  [ PSOldGen:  0K -> 160K (40960K) ]  288K -> 160K (59392K)  [ PSPermGen:  2942K -> 2942K (30720K) ],  0.0057649 secs ] [ Times:  user=0.00  sys=0.00,  real=0.01 secs ] 
