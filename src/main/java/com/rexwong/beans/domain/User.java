@@ -1,4 +1,4 @@
-package com.rexwong.beans;
+package com.rexwong.beans.domain;
 
 public class User {
     private long id;
