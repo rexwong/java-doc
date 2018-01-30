@@ -14,7 +14,6 @@ public class OrderTask implements Runnable{
         this.latch = latch;
         this.orderService=orderService;
     }
-
     public void run() {
         try {
             latch.await();
