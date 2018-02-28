@@ -62,7 +62,7 @@
 
 1. ==线程共享==
 2. 又称为 Non-Heap，用来和堆进行区分
-3. **用于存储已被虚拟机加载的==类信息==、==常量==、==静态变量==、即使编译后的代码等数据**
+3. **用于存储已被虚拟机加载的==类信息==、==常量==、==静态变量==、==JIT(即时编译后的代码)==等数据**
 4. [HotSpot](https://github.com/rexwong/java-doc/blob/master/src/main/java/com/rexwong/jvm/HotspotJVM.md) 虚拟机把 GC 分代收集扩展至方法区，所以在 HotSpot 可以称它为永久代（Permanent Generation）
 
 ### 方法区的大小的分配
@@ -92,7 +92,32 @@
 
 <img src="img/jvm3.png"  alt="图片名称" style="height:380px" align=left />
 
+类的加载：加载、连接（验证、准备、解析）、初始化、使用、卸载
 
+Class 保存类的定义或者结构   堆中
+
+初始化：执行类的构造器<cinit>,为类的静态变量赋予正确的初始值
+
+构造器：jvm加载class文件  
+
+1. static 变量
+2. static{} 语句
+
+构造方法  实例化对象
+
+##  双亲委派模型
+
+避免类的重复加载
+
+## ClassLoader
+
+JDK已有的类加载器： 
+
+- **Boostrap ClassLoader** —>主要加载rt.jar
+- **Extension ClassLoader** extends ClassLoader —>%JAVA_HOME%/lib/ext/*.jar
+- **App Classloader** extends ClassLoader   —>Classpath
+
+自定义类加载器 extends ClassLoader  —>自定义路径
 
 # 参考
 
