@@ -13,7 +13,8 @@ import java.util.stream.Stream;
 public class BaseStreamDemo {
     public static void main(String[] args) {
 //        base();
-        count();
+//        count();
+        flatMapDemo();
     }
     private static void count(){
         List<Map<String,String>> data = Lists.newArrayList();
@@ -43,7 +44,14 @@ public class BaseStreamDemo {
                         map -> "S".equals(map.get("channel_level"))
                 ).collect(Collectors.toList());
 
-        Map<String, DoubleSummaryStatistics> peropleByAge = data.stream().collect(Collectors.groupingBy(map -> map.get("date"), Collectors.summarizingDouble(map->Integer.parseInt(map.get("count")))));
+        Map<String, DoubleSummaryStatistics> peropleByAge = data.stream().
+                collect(
+                        Collectors.groupingBy(map -> map.get("date"),
+                        Collectors.summarizingDouble(
+                                map->Integer.parseInt(map.get("count"))
+                        )
+                )
+                );
     }
     private static void base() {
         List<String> output = Stream.of("a","b").
@@ -59,21 +67,19 @@ public class BaseStreamDemo {
         squareNums.forEach(System.out::println);
 
 
-        Stream<List<Integer>> inputStream = Stream.of(
-                Arrays.asList(1),
-                Arrays.asList(2, 3),
-                Arrays.asList(4, 5, 6)
-        );
-        //flatMap 把 input Stream 中的层级结构扁平化
-        Stream<Integer> outputStream = inputStream.flatMap((childList) -> childList.stream());
-        outputStream.forEach(System.out::println);
+
 
         Integer[] sixNums = {1, 2, 3, 4, 5, 6};
         //filter 对原始 Stream 进行某项测试，通过测试的元素被留下来生成一个新 Stream。
         Integer[] evens =
                 Stream.of(sixNums).filter(n -> n%2 == 0).toArray(Integer[]::new);
         Arrays.stream(evens).forEach(System.out::println);
+        mapCollection();
 
+
+    }
+
+    private static void mapCollection() {
         //List->Map
         List<Persion> persions =
                 Stream.of(
@@ -97,5 +103,16 @@ public class BaseStreamDemo {
                         filter(persion -> persion.getAge()<18).
                         collect(Collectors.toList());
         persionsresult.stream().forEach(System.out::println);
+    }
+
+    private static void flatMapDemo() {
+        Stream<List<Integer>> inputStream = Stream.of(
+                Arrays.asList(1),
+                Arrays.asList(2, 3),
+                Arrays.asList(4, 5, 6)
+        );
+        //flatMap 把 input Stream 中的层级结构扁平化
+        Stream<Integer> outputStream = inputStream.flatMap((childList) -> childList.stream());
+        outputStream.forEach(System.out::println);
     }
 }
