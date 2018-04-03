@@ -15,7 +15,7 @@ public class ArrayListRemove {
         list.add("hangzhou");
         remove32(list, "shanghai");
     }
-    /*
+    /**
      * 正确
      */
     public static void remove32(List<String> list, String target){
