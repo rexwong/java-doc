@@ -2,6 +2,9 @@ package com.rexwong.concurrent.cyclicbarrier;
 
 import java.util.concurrent.CyclicBarrier;
 
+/**
+ * @author rexwong
+ */
 public class CyclicBarrierTest {
     public static void main(String[] args) {
         //创建CyclicBarrier对象，

@@ -5,13 +5,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Fisher–Yates shuffle
- * <code>
+ * <pre>{@code
  * -- To shuffle an array a of n elements (indices 0..n-1):
  * for i from n−1 downto 1 do
- * j ← random integer such that 0 ≤ j ≤ i
- * exchange a[j] and a[i]
- * </code>
- * <p>
+ *    j ← random integer such that 0 ≤ j ≤ i
+ *    exchange a[j] and a[i]
+ *    }
+ *    </pre>
  * https://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
  * <p>
  * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle

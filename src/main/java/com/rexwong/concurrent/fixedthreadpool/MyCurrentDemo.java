@@ -2,6 +2,9 @@ package com.rexwong.concurrent.fixedthreadpool;
 
 import java.util.concurrent.*;
 
+/**
+ * @author rexwong
+ */
 public class MyCurrentDemo {
     public static void main(String[] args) {
 //        fixedPoolDemo();

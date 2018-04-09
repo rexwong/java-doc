@@ -8,7 +8,7 @@ import java.beans.PropertyEditorSupport;
  * ID修改器
  */
 public class IdProptyEditor extends PropertyEditorSupport{
-
+    @Override
     public void setAsText(String text){
         if(StringUtils.hasText(text)){
             long id = Long.parseLong(text);

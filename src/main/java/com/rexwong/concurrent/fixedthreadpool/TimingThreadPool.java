@@ -5,7 +5,11 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * @author rexwong
+ */
 public class TimingThreadPool extends ThreadPoolExecutor {
+
     private final ThreadLocal<Long> startTime = new ThreadLocal<Long>();
     private final AtomicLong numTasks = new AtomicLong();
     private final AtomicLong totalTime = new AtomicLong();
@@ -14,13 +18,13 @@ public class TimingThreadPool extends ThreadPoolExecutor {
                             BlockingQueue<Runnable> workQueue) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
     }
-
+    @Override
     protected void beforeExecute(Thread t, Runnable r) {
         super.beforeExecute(t, r);
         System.out.println(String.format("before====Thread %s: start %s", t, r));
         startTime.set(System.nanoTime());
     }
-
+    @Override
     protected void afterExecute(Runnable r, Throwable t) {
         try {
             long endTime = System.nanoTime();

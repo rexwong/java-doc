@@ -4,6 +4,9 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author rexwong
+ */
 public class CheckTimingThreadPool {
     public static void main(String[] args) {
         ThreadPoolExecutor exec = new TimingThreadPool(0, Integer.MAX_VALUE,

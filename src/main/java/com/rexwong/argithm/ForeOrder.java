@@ -13,8 +13,7 @@ import java.util.Map;
  */
 public class ForeOrder {
     public static void main(String[] args) {
-        int i=2;
-        System.out.println(i<<10);
+
         List<String> list = Arrays.asList("A","B","C","D","E","F","G","H","I");
         Map<String,Integer> forceOrder = ImmutableMap.of("B",1,"D",5,"F",7);
         List<String> result = Lists.newArrayListWithCapacity(list.size());

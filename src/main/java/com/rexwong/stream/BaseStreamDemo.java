@@ -54,11 +54,6 @@ public class BaseStreamDemo {
                 );
     }
     private static void base() {
-        List<String> output = Stream.of("a","b").
-                map(String::toUpperCase).
-                collect(Collectors.toList());
-
-        output.forEach(System.out::println);
 
         List<Integer> nums = Arrays.asList(1, 2, 3, 4);
         List<Integer> squareNums =  nums.stream().
@@ -66,17 +61,12 @@ public class BaseStreamDemo {
                 collect(Collectors.toList());
         squareNums.forEach(System.out::println);
 
-
-
-
         Integer[] sixNums = {1, 2, 3, 4, 5, 6};
         //filter 对原始 Stream 进行某项测试，通过测试的元素被留下来生成一个新 Stream。
         Integer[] evens =
                 Stream.of(sixNums).filter(n -> n%2 == 0).toArray(Integer[]::new);
         Arrays.stream(evens).forEach(System.out::println);
         mapCollection();
-
-
     }
 
     private static void mapCollection() {

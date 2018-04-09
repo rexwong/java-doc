@@ -11,10 +11,15 @@ public class SubTask extends Thread{
         this.name = name;
         this.cb = cb;
     }
-
+    @Override
     public void run() {
         System.out.println("[并发任务" + name + "]  开始执行");
-        for (int i = 0; i < 999999; i++) ;    //模拟耗时的任务
+        //模拟耗时的任务
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("[并发任务" + name + "]  开始执行完毕，通知障碍器");
         try {
             //每执行完一项任务就通知障碍器
