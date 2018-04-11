@@ -37,5 +37,12 @@ public class BitwiseOperation {
          * 两个操作数的位中，相同则结果为0，不同则结果为1
          */
         System.out.printf("a 与 b 异或的结果是：%s \n",a^b);
+
+        boolean flag=false;
+        flag |= false;
+
+        System.out.printf("flag=%s \n",flag);
+
+        System.out.println((1212 >> 1)&1);
     }
 }

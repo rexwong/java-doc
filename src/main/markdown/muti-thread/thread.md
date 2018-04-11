@@ -1,6 +1,6 @@
 # 生命周期
 
-![](img/threadlife.png)
+![](../../java/com/rexwong/thread/img/threadlife.png)
 
 ## 线程状态
 
