@@ -52,7 +52,7 @@
 2. 所有的对象和数组都在堆上进行分配
 3. 这部分空间可通过 GC 进行回收。当申请不到空间时会抛出 OutOfMemoryError
 
-[详细内容](https://github.com/rexwong/java-doc/blob/master/src/main/java/com/rexwong/jvm/jvmheap.md)
+[详细内容](jvmheap.md)
 
 ## 方法区（Method Area）
 
