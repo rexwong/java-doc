@@ -24,4 +24,9 @@ public class Persion {
     public void setAge(Integer age) {
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        return this.name+"\t"+this.age;
+    }
 }

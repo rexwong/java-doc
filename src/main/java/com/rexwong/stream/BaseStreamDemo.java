@@ -2,23 +2,26 @@ package com.rexwong.stream;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
-import java.util.Arrays;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BaseStreamDemo {
     public static void main(String[] args) {
 //        base();
-//        count();
-        flatMapDemo();
+//        countThenSortBycount();
+//        updataProAndSortPro();
+//        flatMapDemo();
+        getAvgProInMap();
     }
-    private static void count(){
+    private static void count1(){
         List<Map<String,String>> data = Lists.newArrayList();
         data.add(ImmutableMap.of("date","2018-01-29","channel_level","S","count","2"));
+        data.add(ImmutableMap.of("date","2018-01-29","channel_level","R","count","3"));
         data.add(ImmutableMap.of("date","2018-01-29","channel_level","R","count","3"));
 
         data.add(ImmutableMap.of("date","2018-01-30","channel_level","S","count","5"));
@@ -52,7 +55,24 @@ public class BaseStreamDemo {
                         )
                 )
                 );
+        System.out.println(peropleByAge.get(""));
     }
+    private static void countThenSortBycount(){
+        List<String> list = Arrays.asList("b","a","b","c","a","b",".",".",".");
+        Map<String, Long> counted = list.stream().filter(item->!item.equals("."))
+                .collect(
+                        Collectors.groupingBy(Function.identity(), Collectors.counting())
+                );
+        Map<String, Long> finalMap = new LinkedHashMap<>();
+
+        //Sort a map and add to finalMap
+        counted.entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue()
+                        .reversed()).forEachOrdered(e -> finalMap.put(e.getKey(), e.getValue()));
+
+        System.out.println(finalMap);
+    }
+
     private static void base() {
 
         List<Integer> nums = Arrays.asList(1, 2, 3, 4);
@@ -104,5 +124,28 @@ public class BaseStreamDemo {
         //flatMap 把 input Stream 中的层级结构扁平化
         Stream<Integer> outputStream = inputStream.flatMap((childList) -> childList.stream());
         outputStream.forEach(System.out::println);
+    }
+    private static void updataProAndSortPro(){
+        Map<Integer,Persion> mapdata = Maps.newHashMap();
+        mapdata.put(1,new Persion("rex",11));
+        mapdata.put(2,new Persion("rex2",9));
+        mapdata.put(3,new Persion("rex3",12));
+        mapdata.put(4,new Persion("rex3",5));
+
+        mapdata.forEach((k,v)->{
+            int new_age = v.getAge()*10;
+            v.setAge(new_age);
+        });
+        List<Persion> sorted = mapdata.values().stream()
+                .sorted(Comparator.comparing(Persion::getAge))
+                .collect(Collectors.toList());
+        sorted.forEach(System.out::println);
+    }
+    private static void getAvgProInMap() {
+        Map<Integer,Persion> mapdata = Maps.newHashMap();
+        mapdata.put(1,new Persion("rex",11));
+        mapdata.put(2,new Persion("rex2",9));
+        double avg = mapdata.values().stream().mapToDouble(Persion::getAge).average().getAsDouble();
+        System.out.println(avg);
     }
 }
